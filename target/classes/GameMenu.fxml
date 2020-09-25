@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="PaneRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <ImageView fitHeight="501.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@Main.gif" />
+         </image>
+      </ImageView>
+   </bottom>
+   <left>
+      <Button fx:id="NewGameButton" mnemonicParsing="false" onAction="#HandleNewGame" style="-fx-background-color: yellow;" text="NEW GAME" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Avenir Roman" size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="20.0" top="250.0" />
+         </BorderPane.margin>
+      </Button>
+   </left>
+   <right>
+      <Button fx:id="LoadGameButton" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#HandleLoadGame" style="-fx-background-color: yellow;" text="LOAD GAME" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Avenir Roman" size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets right="20.0" top="250.0" />
+         </BorderPane.margin>
+      </Button>
+   </right>
+   <top>
+      <ImageView fitHeight="150.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@name.gif" />
+         </image>
+      </ImageView>
+   </top>
+</BorderPane>

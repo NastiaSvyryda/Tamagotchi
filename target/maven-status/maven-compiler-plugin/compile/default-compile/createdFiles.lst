@@ -1,0 +1,17 @@
+world/ucode/pet/PetAction.class
+world/ucode/controllers/ControllerGameMenu.class
+world/ucode/scenes/GameMenu.class
+world/ucode/scenes/NewGame.class
+world/ucode/controllers/ControllerGamePlay.class
+world/ucode/controllers/ControllerGameOver.class
+world/ucode/scenes/GamePlay.class
+world/ucode/controllers/Controller.class
+world/ucode/scenes/GameOver.class
+world/ucode/animation/Animation.class
+world/ucode/controllers/ControllerNewGame.class
+world/ucode/scenes/LoadGame.class
+world/ucode/scenes/GameScene.class
+world/ucode/pet/Pet.class
+world/ucode/controllers/ControllerLoadGame.class
+world/ucode/Main.class
+world/ucode/pet/PetType.class
