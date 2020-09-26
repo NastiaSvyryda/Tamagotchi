@@ -18,13 +18,29 @@ public class ControllerGameMenu extends Controller{
     }
 
     @FXML
-    private void HandleNewGame(ActionEvent event) {
+    private void HandleNewGame() {
         System.out.println("click new");
         NewGame scene = new NewGame(primaryStage);
     }
     @FXML
-    private void HandleLoadGame(ActionEvent event) {
+    private void HandleLoadGame() {
         System.out.println("click load");
         LoadGame scene = new LoadGame(primaryStage);
+    }
+    @FXML
+    private void EnteredNewGame() {
+        NewGameButton.setStyle(styleHover);
+    }
+    @FXML
+    private void ExitedNewGame() {
+        NewGameButton.setStyle(style);
+    }
+    @FXML
+    private void EnteredLoadGame() {
+        LoadGameButton.setStyle(styleHover);
+    }
+    @FXML
+    private void ExitedLoadGame() {
+        LoadGameButton.setStyle(style);
     }
 }

@@ -31,17 +31,17 @@
             <Image url="@Bob.gif" />
          </image>
       </ImageView>
-      <Button layoutX="610.0" layoutY="491.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="BOB">
+      <Button fx:id="Bob" layoutX="610.0" layoutY="491.0" mnemonicParsing="false" onMouseEntered="#EnteredBob" onMouseExited="#ExitedBob" style="-fx-background-color: yellow;" text="BOB">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="356.0" layoutY="491.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="KEVIN">
+      <Button fx:id="Kevin" layoutX="356.0" layoutY="491.0" mnemonicParsing="false" onMouseEntered="#EnteredKevin" onMouseExited="#ExitedKevin" style="-fx-background-color: yellow;" text="KEVIN">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="110.0" layoutY="491.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="STUART">
+      <Button fx:id="Stuart" layoutX="110.0" layoutY="491.0" mnemonicParsing="false" onMouseEntered="#EnteredStuart" onMouseExited="#ExitedStuart" style="-fx-background-color: yellow;" text="STUART">
          <font>
             <Font size="20.0" />
          </font>
