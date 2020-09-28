@@ -1,10 +1,10 @@
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/controllers/ControllerGameOver.java
-/Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/pet/Pet.java
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/scenes/LoadGame.java
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/controllers/ControllerLoadGame.java
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/animation/Animation.java
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/scenes/GameOver.java
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/scenes/GameMenu.java
+/Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/pet/Mionion.java
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/controllers/ControllerNewGame.java
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/controllers/Controller.java
 /Users/asvyryda/Desktop/tamagotchi/src/main/java/world/ucode/scenes/GameScene.java

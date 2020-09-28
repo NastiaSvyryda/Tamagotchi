@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="PlayButton" mnemonicParsing="false" onMouseClicked="#HandlePlay" style="-fx-background-color: yellow;" text="play">
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Avenir Black" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="FeedButton" mnemonicParsing="false" onMouseClicked="#HandleFeed" style="-fx-background-color: yellow;" text="feed">
+               <font>
+                  <Font name="Avenir Black" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="GiveWaterButton" mnemonicParsing="false" onMouseClicked="#HandleGiveWater" style="-fx-background-color: yellow;" text="give water">
+               <font>
+                  <Font name="Avenir Black" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="GiveMedicineButton" mnemonicParsing="false" onMouseClicked="#HandleGiveMedicine" style="-fx-background-color: yellow;" text="give medicine">
+               <font>
+                  <Font name="Avenir Black" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="CleanUpButton" mnemonicParsing="false" onMouseClicked="#HandleCleanUp" style="-fx-background-color: yellow;" text="clean up">
+               <font>
+                  <Font name="Avenir Black" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <ImageView fitHeight="293.0" fitWidth="411.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox prefHeight="400.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="HealthLabel" text="Health">
+               <font>
+                  <Font name="Avenir Black" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="HappinessLabel" text="Happiness">
+               <font>
+                  <Font name="Avenir Black" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="400.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="HungerLabel" text="Hunger">
+               <font>
+                  <Font name="Avenir Black" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="ThirstLabel" text="Thirst">
+               <font>
+                  <Font name="Avenir Black" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="CleanlinessLabel" text="Cleanliness">
+               <font>
+                  <Font name="Avenir Black" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <Pane prefHeight="75.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="NameLabel" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="BACK">
+               <font>
+                  <Font name="Avenir Black" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="363.0" layoutY="23.0" style="-fx-background-color: yellow;" text="NAME">
+               <font>
+                  <Font name="Avenir Next Regular" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+</BorderPane>

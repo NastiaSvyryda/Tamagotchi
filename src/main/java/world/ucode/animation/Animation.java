@@ -1,4 +1,11 @@
 package world.ucode.animation;
 
-public class Animation {
+import javafx.scene.control.Label;
+
+abstract public class Animation {
+//    Label health;
+//    Label happiness;
+//    Label hunger;
+//    Label thirst;
+//    Label cleanliness;
 }

@@ -12,9 +12,14 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("tamagotchi");
-        GameMenu menu = new GameMenu(primaryStage);
-        //primaryStage.setScene(new Scene(root, 300, 250));
-        primaryStage.show();
+        try {
+            primaryStage.setTitle("tamagotchi");
+            GameMenu menu = new GameMenu(primaryStage);
+            //primaryStage.setScene(new Scene(root, 300, 250));
+            primaryStage.show();
+        }
+        catch(Exception e){
+            System.err.println("Exception e");
+        }
     }
 }
