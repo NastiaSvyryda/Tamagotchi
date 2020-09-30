@@ -9,14 +9,6 @@ import world.ucode.scenes.GameMenu;
 import world.ucode.scenes.GamePlay;
 
 public class ControllerNewGame extends Controller{
-    @FXML
-    Button Bob;
-    @FXML
-    Button Kevin;
-    @FXML
-    Button Stuart;
-    @FXML
-    Button BackNewGame;
     public ControllerNewGame(Stage primaryStage) {
         super(primaryStage);
     }
@@ -42,14 +34,17 @@ public class ControllerNewGame extends Controller{
     }
 
     @FXML
-    private void EnteredBackNewGame() {
-        BackNewGame.setStyle(styleHover);
-    }
+    Button BackNewGame;
     @FXML
-    private void ExitedBackNewGame() {
-        BackNewGame.setStyle(style);
-    }
-
+    Button Bob;
+    @FXML
+    Button Kevin;
+    @FXML
+    Button Stuart;
+    @FXML
+    private void EnteredBackNewGame() { BackNewGame.setStyle(styleHover); }
+    @FXML
+    private void ExitedBackNewGame() { BackNewGame.setStyle(style); }
     @FXML
     private void EnteredBob() {
         Bob.setStyle(styleHover);
@@ -58,7 +53,6 @@ public class ControllerNewGame extends Controller{
     private void ExitedBob() {
         Bob.setStyle(style);
     }
-
     @FXML
     private void EnteredKevin() {
         Kevin.setStyle(styleHover);
@@ -67,7 +61,6 @@ public class ControllerNewGame extends Controller{
     private void ExitedKevin() {
         Kevin.setStyle(style);
     }
-
     @FXML
     private void EnteredStuart() {
         Stuart.setStyle(styleHover);

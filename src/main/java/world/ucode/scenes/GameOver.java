@@ -1,9 +1,10 @@
 package world.ucode.scenes;
 
 import javafx.stage.Stage;
+import world.ucode.controllers.ControllerGameOver;
 
 public class GameOver extends GameScene {
-    GameOver(Stage primaryStage, String fxmlName, Object Controller) {
-        super(primaryStage, fxmlName, Controller);
+    public GameOver(Stage primaryStage) {
+        super(primaryStage, "GameOver.fxml", new ControllerGameOver(primaryStage));
     }
 }

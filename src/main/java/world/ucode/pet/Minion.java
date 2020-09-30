@@ -7,13 +7,13 @@ import java.util.Map;
 public class Minion {
     private String name;
     private PetType type;
-    private int maxHealth = 100;
+    private double maxHealth = 10;
 
-    private int health = 10;
-    private int happiness = 10;
-    private int hunger = 0;
-    private int thirst = 0;
-    private int cleanliness = 10;
+    private double health = 10;
+    private double happiness = 10;
+    private double hunger = 10;
+    private double thirst = 10;
+    private double cleanliness = 10;
     private final Map<PetAction, Method> actions = new HashMap<PetAction, Method>() {{
         try {
             put(PetAction.PLAY, Minion.class.getDeclaredMethod("play"));
@@ -34,9 +34,9 @@ public class Minion {
 //
 //    }
 
-    public void StartAnimation() {
-
-    }
+//    public void StartAnimation() {
+//
+//    }
     public void ActionHandler(PetAction action, Minion minion) throws InvocationTargetException, IllegalAccessException {
         actions.get(action).invoke(minion);
     }
@@ -44,23 +44,43 @@ public class Minion {
     public String getName() {
         return name;
     }
+    public PetType GetType() {
+        return type;
+    }
+    public double GetMaxHealth() {return maxHealth;}
+    public double GetHealth() {return health;}
+    public double GetHappiness() {return happiness;}
+    public double GetHunger() {return hunger;}
+    public double GetThirst() {return thirst;}
+    public double GetCleanliness() {return cleanliness;}
 
+    public int LiveCycle() {
+        if (health > 0) {
+            happiness -= 0.005;
+            hunger -= 0.005;
+            thirst -= 0.005;
+            cleanliness -= 0.005;
+            health -= 0.005;
+            return 0;
+        }
+        return -1;
+    }
     private void play() {
         System.out.println("play");
         happiness++;
-        hunger++;
-        thirst++;
+        hunger--;
+        thirst--;
         cleanliness--;
         health--;
     }
     private void feed() {
         System.out.println("feed");
-        hunger--;
+        hunger++;
         health++;
     }
     private void giveWater() {
         System.out.println("give water");
-        thirst--;
+        thirst++;
         health++;
     }
     private void giveMadicine() {

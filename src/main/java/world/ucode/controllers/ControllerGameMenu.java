@@ -1,18 +1,12 @@
 package world.ucode.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import world.ucode.scenes.LoadGame;
 import world.ucode.scenes.NewGame;
 
 public class ControllerGameMenu extends Controller{
-    @FXML
-    Button NewGameButton;
-    @FXML
-    Button LoadGameButton;
     public ControllerGameMenu(Stage primaryStage) {
         super(primaryStage);
     }
@@ -27,20 +21,21 @@ public class ControllerGameMenu extends Controller{
         System.out.println("click load");
         LoadGame scene = new LoadGame(primaryStage);
     }
+
     @FXML
-    private void EnteredNewGame() {
+    Button NewGameButton;
+    @FXML
+    Button LoadGameButton;
+    public void EnteredNewGame() {
         NewGameButton.setStyle(styleHover);
     }
-    @FXML
-    private void ExitedNewGame() {
+    public void ExitedNewGame() {
         NewGameButton.setStyle(style);
     }
-    @FXML
-    private void EnteredLoadGame() {
+    public void EnteredLoadGame() {
         LoadGameButton.setStyle(styleHover);
     }
-    @FXML
-    private void ExitedLoadGame() {
+    public void ExitedLoadGame() {
         LoadGameButton.setStyle(style);
     }
 }
