@@ -103,6 +103,7 @@ public class ControllerGamePlay extends Controller{
                     @Override
                     public void handle(ActionEvent event) {
                         if (minion.LiveCycle() == -1) {
+                            //delete minion from db
                             LiveCycle.stop();
                             GameOver menu = new GameOver(primaryStage);
                         }

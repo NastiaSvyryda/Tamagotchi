@@ -9,12 +9,13 @@ import javafx.stage.Stage;
 
 public abstract class GameScene {
     private Scene scene;
+    public Parent PaneRoot;
     GameScene(Stage primaryStage, String fxmlName, Object Controller) {
         try {
             FXMLLoader loader = new
                     FXMLLoader(getClass().getResource(fxmlName));
             loader.setController(Controller);
-            Parent PaneRoot = loader.load();
+            PaneRoot = loader.load();
             scene = new Scene(PaneRoot, 800, 600);
             primaryStage.setScene(scene);
             primaryStage.show();

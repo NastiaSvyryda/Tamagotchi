@@ -37,7 +37,20 @@ public class DataBase {
     // -------- Вывод таблицы--------
     public static ResultSet ReadDB() throws ClassNotFoundException, SQLException
     {
-        resSet = statmt.executeQuery("SELECT name FROM minions");
+        resSet = statmt.executeQuery("SELECT * FROM minions");
+//        while(resSet.next())
+//        {
+//            System.out.println( "type = " + resSet.getString("type") );
+//            System.out.println( "name = " + resSet.getString("name") );
+//            System.out.println( "health = " + resSet.getString("health") );
+//            System.out.println( "happiness = " + resSet.getString("happiness") );
+//            System.out.println( "hunger = " + resSet.getString("hunger") );
+//            System.out.println( "thirst = " + resSet.getString("thirst") );
+//            System.out.println( "cleanliness = " + resSet.getString("cleanliness") );
+//            System.out.println();
+//        }
+//
+//        System.out.println("Таблица выведена");
         return resSet;
     }
 

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="383.0" layoutY="224.0" text="LOAD GAME" />
+      <Label layoutX="362.0" layoutY="55.0" text="LOAD GAME" />
+      <Button fx:id="SelectButton" layoutX="371.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#HandleSelect" text="Button" />
+      <ChoiceBox fx:id="LoadMinions" layoutX="325.0" layoutY="251.0" prefWidth="150.0" />
    </children>
 </Pane>
