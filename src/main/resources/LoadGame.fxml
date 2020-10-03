@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -8,7 +9,15 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="362.0" layoutY="55.0" text="LOAD GAME" />
-      <Button fx:id="SelectButton" layoutX="371.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#HandleSelect" text="Button" />
+      <Button fx:id="SelectButton" layoutX="326.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#HandleSelect" style="-fx-background-color: yellow;" text="SELECT">
+         <font>
+            <Font name="Avenir Black" size="30.0" />
+         </font></Button>
       <ChoiceBox fx:id="LoadMinions" layoutX="325.0" layoutY="251.0" prefWidth="150.0" />
+      <Button fx:id="BackLoadGame" layoutX="32.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#HandleBack" style="-fx-background-color: yellow;" text="Back">
+         <font>
+            <Font name="Avenir Black" size="20.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

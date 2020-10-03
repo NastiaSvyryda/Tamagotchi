@@ -7,12 +7,12 @@
 
 <Pane fx:id="PaneRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="RestartButton" layoutX="314.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#HandleRestart" onMouseEntered="#EnteredRestart" onMouseExited="#ExitedRestart" style="-fx-background-color: yellow;" text="RESTART">
+      <Button fx:id="RestartButton" layoutX="314.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#HandleRestart" style="-fx-background-color: yellow;" text="RESTART">
          <font>
             <Font name="Avenir Black" size="30.0" />
          </font>
       </Button>
-      <Button fx:id="ExitButton" layoutX="347.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#HandleExit" onMouseEntered="#EnteredExit" onMouseExited="#ExitedExit" style="-fx-background-color: yellow;" text="EXIT">
+      <Button fx:id="ExitButton" layoutX="347.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#HandleExit" style="-fx-background-color: yellow;" text="EXIT">
          <font>
             <Font name="Avenir Black" size="30.0" />
          </font>

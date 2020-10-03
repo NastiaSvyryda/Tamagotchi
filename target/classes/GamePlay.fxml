@@ -7,7 +7,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="785.0" fitWidth="1099.0" layoutX="-299.0" pickOnBounds="true" preserveRatio="true">
@@ -19,7 +18,7 @@
          <bottom>
             <HBox prefHeight="51.0" prefWidth="800.0" spacing="50.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="PlayButton" mnemonicParsing="false" onMouseClicked="#HandlePlay" onMouseEntered="#EnteredPlay" onMouseExited="#ExitedPlay" style="-fx-background-color: yellow;" text="play">
+                  <Button fx:id="PlayButton" mnemonicParsing="false" onMouseClicked="#HandlePlay" style="-fx-background-color: yellow;" text="play">
                      <HBox.margin>
                         <Insets left="100.0" />
                      </HBox.margin>
@@ -27,22 +26,22 @@
                         <Font name="Avenir Black" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="FeedButton" mnemonicParsing="false" onMouseClicked="#HandleFeed" onMouseEntered="#EnteredFeed" onMouseExited="#ExitedFeed" style="-fx-background-color: yellow;" text="feed">
+                  <Button fx:id="FeedButton" mnemonicParsing="false" onMouseClicked="#HandleFeed" style="-fx-background-color: yellow;" text="feed">
                      <font>
                         <Font name="Avenir Black" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="GiveWaterButton" mnemonicParsing="false" onMouseClicked="#HandleGiveWater" onMouseEntered="#EnteredGiveWater" onMouseExited="#ExitedGiveWater" style="-fx-background-color: yellow;" text="give water">
+                  <Button fx:id="GiveWaterButton" mnemonicParsing="false" onMouseClicked="#HandleGiveWater" style="-fx-background-color: yellow;" text="give water">
                      <font>
                         <Font name="Avenir Black" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="GiveMedicineButton" mnemonicParsing="false" onMouseClicked="#HandleGiveMedicine" onMouseEntered="#EnteredGiveMedicine" onMouseExited="#ExitedGiveMedicine" style="-fx-background-color: yellow;" text="give medicine">
+                  <Button fx:id="GiveMedicineButton" mnemonicParsing="false" onMouseClicked="#HandleGiveMedicine" style="-fx-background-color: yellow;" text="give medicine">
                      <font>
                         <Font name="Avenir Black" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="CleanUpButton" mnemonicParsing="false" onMouseClicked="#HandleCleanUp" onMouseEntered="#EnteredCleanUp" onMouseExited="#ExitedCleanUp" style="-fx-background-color: yellow;" text="clean up">
+                  <Button fx:id="CleanUpButton" mnemonicParsing="false" onMouseClicked="#HandleCleanUp" style="-fx-background-color: yellow;" text="clean up">
                      <font>
                         <Font name="Avenir Black" size="15.0" />
                      </font>
@@ -53,7 +52,7 @@
          <top>
             <Pane prefHeight="75.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="BackGamePlay" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#HandleBackGamePlay" onMouseEntered="#EnteredBackGamePlay" onMouseExited="#ExitedBackGamePlay" style="-fx-background-color: yellow;" text="BACK">
+                  <Button fx:id="BackGamePlay" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#HandleBackGamePlay" style="-fx-background-color: yellow;" text="BACK">
                      <font>
                         <Font name="Avenir Black" size="15.0" />
                      </font>
@@ -112,11 +111,6 @@
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fx:id="AnimationView" fitHeight="363.0" fitWidth="399.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="StartButton" layoutX="155.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#HandleStart" onMouseEntered="#EnteredStart" onMouseExited="#ExitedStart" style="-fx-background-color: yellow;" text="START">
-                     <font>
-                        <Font name="Avenir Black" size="20.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
          </center>

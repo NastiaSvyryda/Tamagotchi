@@ -12,7 +12,7 @@ public class DataBase {
     {
         Connection = null;
         Class.forName("org.sqlite.JDBC");
-        Connection = DriverManager.getConnection("jdbc:sqlite:Tamagotchi.s3db");
+        Connection = DriverManager.getConnection("jdbc:sqlite:Tamagotchi.sqlite");
 
         System.out.println("База Подключена!");
     }
@@ -29,15 +29,35 @@ public class DataBase {
     // --------Заполнение таблицы--------
     public static void WriteDB(String type, String name, double health, double happiness, double hunger, double thirst, double cleanliness) throws SQLException
     {
+        statmt.execute("DELETE FROM 'minions' WHERE name = '" + name + "';");
         statmt.execute("INSERT INTO 'minions' ('type', 'name', 'health', 'happiness', 'hunger', 'thirst', 'cleanliness') VALUES ('"+type+"', '"+name+"', "+health+", "+happiness+", "+hunger+", "+thirst+", "+cleanliness+"); ");
 
         System.out.println("Таблица заполнена");
     }
 
     // -------- Вывод таблицы--------
-    public static ResultSet ReadDB() throws ClassNotFoundException, SQLException
+    public static ResultSet ReadDBNames() throws ClassNotFoundException, SQLException
     {
-        resSet = statmt.executeQuery("SELECT * FROM minions");
+        resSet = statmt.executeQuery("SELECT name FROM minions");
+//        while(resSet.next())
+//        {
+//            System.out.println( "type = " + resSet.getString("type") );
+//            System.out.println( "name = " + resSet.getString("name") );
+//            System.out.println( "health = " + resSet.getString("health") );
+//            System.out.println( "happiness = " + resSet.getString("happiness") );
+//            System.out.println( "hunger = " + resSet.getString("hunger") );
+//            System.out.println( "thirst = " + resSet.getString("thirst") );
+//            System.out.println( "cleanliness = " + resSet.getString("cleanliness") );
+//            System.out.println();
+//        }
+//
+//        System.out.println("Таблица выведена");
+        return resSet;
+    }
+
+    public static ResultSet ReadDBMinion(String name) throws ClassNotFoundException, SQLException
+    {
+        resSet = statmt.executeQuery("SELECT * FROM minions WHERE name = '" + name + "'");
 //        while(resSet.next())
 //        {
 //            System.out.println( "type = " + resSet.getString("type") );

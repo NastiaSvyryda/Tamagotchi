@@ -14,23 +14,21 @@ public class Main extends Application {
         launch(args);
     }
     @Override
-    public void start(Stage primaryStage) throws SQLException, ClassNotFoundException {
+    public void start(Stage primaryStage){
         try {
+            DataBase.Conn();
+            DataBase.CreateDB();
             primaryStage.setTitle("tamagotchi");
             GameMenu menu = new GameMenu(primaryStage);
             //primaryStage.setScene(new Scene(root, 300, 250));
             primaryStage.show();
+            //DataBase.CloseDB();
         }
         catch(Exception e){
-            System.err.println("Exception e");
+            System.err.println("Exception");
         }
-
-//        DataBase.Conn();
-//        DataBase.CreateDB();
-//        DataBase.WriteDB("bob", "sasha", 0.7, 0.5, 0.9, 0.8, 1);
 //        DataBase.WriteDB("kevin", "nastia", 0.7, 0.5, 0.9, 0.8, 1);
 //        DataBase.WriteDB("kedfgbdbdvin", "nastia", 0.7, 0.5, 0.9, 0.8, 1);
 //        ResultSet resSet = DataBase.ReadDB();
-//        DataBase.CloseDB();
     }
 }

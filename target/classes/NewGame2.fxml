@@ -22,17 +22,17 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Label>
-      <Button fx:id="Stuart" layoutX="423.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#HandleStuart" onMouseEntered="#EnteredStuart" onMouseExited="#ExitedStuart" style="-fx-background-color: yellow;" text="STUART">
+      <Button fx:id="Stuart" layoutX="423.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#HandleStuart" style="-fx-background-color: yellow;" text="STUART">
          <font>
             <Font name="Avenir Black" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="Kevin" layoutX="675.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#HandleKevin" onMouseEntered="#EnteredKevin" onMouseExited="#ExitedKevin" style="-fx-background-color: yellow;" text="KEVIN">
+      <Button fx:id="Kevin" layoutX="675.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#HandleKevin" style="-fx-background-color: yellow;" text="KEVIN">
          <font>
             <Font name="Avenir Black" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="Bob" layoutX="656.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#HandleBob" onMouseEntered="#EnteredBob" onMouseExited="#ExitedBob" style="-fx-background-color: yellow;" text="BOB">
+      <Button fx:id="Bob" layoutX="656.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#HandleBob" style="-fx-background-color: yellow;" text="BOB">
          <font>
             <Font name="Avenir Black" size="20.0" />
          </font>
@@ -52,10 +52,20 @@
             <Font name="Avenir Black" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="BackNewGame" layoutX="34.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#HandleBackNewGame" onMouseEntered="#EnteredBackNewGame" onMouseExited="#ExitedBackNewGame" style="-fx-background-color: yellow;" text="BACK">
+      <Button fx:id="BackNewGame" layoutX="34.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#HandleBackNewGame" style="-fx-background-color: yellow;" text="BACK">
          <font>
             <Font name="Avenir Black" size="15.0" />
          </font>
       </Button>
+      <Label layoutX="45.0" layoutY="225.0" text="Created by:">
+         <font>
+            <Font name="Avenir Black" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="InputName" layoutX="45.0" layoutY="255.0" promptText="type your name">
+         <font>
+            <Font name="Avenir Black" size="13.0" />
+         </font>
+      </TextField>
    </children>
 </Pane>

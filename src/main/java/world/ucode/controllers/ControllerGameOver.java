@@ -5,6 +5,9 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import world.ucode.scenes.GameMenu;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class ControllerGameOver extends Controller{
     public ControllerGameOver(Stage primaryStage) {
         super(primaryStage);
@@ -22,20 +25,12 @@ public class ControllerGameOver extends Controller{
     Button RestartButton;
     @FXML
     Button ExitButton;
-    @FXML
-    private void EnteredRestart() {
-        RestartButton.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedRestart() {
-        RestartButton.setStyle(style);
-    }
-    @FXML
-    private void EnteredExit() {
-        ExitButton.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedExit() {
-        ExitButton.setStyle(style);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        RestartButton.setOnMouseEntered(e -> RestartButton.setStyle(styleHover));
+        RestartButton.setOnMouseExited(e -> RestartButton.setStyle(style));
+        ExitButton.setOnMouseEntered(e -> ExitButton.setStyle(styleHover));
+        ExitButton.setOnMouseExited(e -> ExitButton.setStyle(style));
     }
 }

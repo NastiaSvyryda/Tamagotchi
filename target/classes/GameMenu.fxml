@@ -16,7 +16,7 @@
       </ImageView>
    </bottom>
    <left>
-      <Button fx:id="NewGameButton" mnemonicParsing="false" onMouseClicked="#HandleNewGame" onMouseEntered="#EnteredNewGame" onMouseExited="#ExitedNewGame" style="-fx-background-color: yellow;" text="NEW GAME" BorderPane.alignment="CENTER">
+      <Button fx:id="NewGameButton" mnemonicParsing="false" onMouseClicked="#HandleNewGame" style="-fx-background-color: yellow;" text="NEW GAME" BorderPane.alignment="CENTER">
          <font>
             <Font name="Avenir Black" size="30.0" />
          </font>
@@ -26,7 +26,7 @@
       </Button>
    </left>
    <right>
-      <Button fx:id="LoadGameButton" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#HandleLoadGame" onMouseEntered="#EnteredLoadGame" onMouseExited="#ExitedLoadGame" style="-fx-background-color: yellow;" text="LOAD GAME" BorderPane.alignment="CENTER">
+      <Button fx:id="LoadGameButton" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#HandleLoadGame" style="-fx-background-color: yellow;" text="LOAD GAME" BorderPane.alignment="CENTER">
          <font>
             <Font name="Avenir Black" size="30.0" />
          </font>

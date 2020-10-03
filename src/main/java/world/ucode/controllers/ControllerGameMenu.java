@@ -6,6 +6,9 @@ import javafx.stage.Stage;
 import world.ucode.scenes.LoadGame;
 import world.ucode.scenes.NewGame;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class ControllerGameMenu extends Controller{
     public ControllerGameMenu(Stage primaryStage) {
         super(primaryStage);
@@ -26,16 +29,12 @@ public class ControllerGameMenu extends Controller{
     Button NewGameButton;
     @FXML
     Button LoadGameButton;
-    public void EnteredNewGame() {
-        NewGameButton.setStyle(styleHover);
-    }
-    public void ExitedNewGame() {
-        NewGameButton.setStyle(style);
-    }
-    public void EnteredLoadGame() {
-        LoadGameButton.setStyle(styleHover);
-    }
-    public void ExitedLoadGame() {
-        LoadGameButton.setStyle(style);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        NewGameButton.setOnMouseEntered(e -> NewGameButton.setStyle(styleHover));
+        NewGameButton.setOnMouseExited(e -> NewGameButton.setStyle(style));
+        LoadGameButton.setOnMouseEntered(e -> LoadGameButton.setStyle(styleHover));
+        LoadGameButton.setOnMouseExited(e -> LoadGameButton.setStyle(style));
     }
 }

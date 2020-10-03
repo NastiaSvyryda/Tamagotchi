@@ -1,6 +1,8 @@
 package world.ucode.pet;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,17 +28,43 @@ public class Minion {
         }
     }};
 
-    public Minion(PetType type) {
+    public Minion(PetType type, String name) {
         this.type = type;
-        this.name = type.toString();
+        this.name = name;
     }
-//    public Pet(String bdName) {
-//
-//    }
+    public Minion(ResultSet Minion) {
+        try {
+            type = toType(Minion.getString("type"));
+            System.out.println("type = " + Minion.getString("type"));
+            name = Minion.getString("name");
+            System.out.println("name = " + Minion.getString("name"));
+            health = Double.parseDouble(Minion.getString("health"));
+            System.out.println("health = " + Minion.getString("health"));
+            happiness = Double.parseDouble(Minion.getString("happiness"));
+            System.out.println("happiness = " + Minion.getString("happiness"));
+            hunger = Double.parseDouble(Minion.getString("hunger"));
+            System.out.println("hunger = " + Minion.getString("hunger"));
+            thirst = Double.parseDouble(Minion.getString("thirst"));
+            System.out.println("thirst = " + Minion.getString("thirst"));
+            cleanliness = Double.parseDouble(Minion.getString("cleanliness"));
+            System.out.println("cleanliness = " + Minion.getString("cleanliness"));
+            System.out.println();
+        }
+        catch(SQLException ignored) {
+            System.err.println("SQLException");
+        }
+    }
 
-//    public void StartAnimation() {
-//
-//    }
+    public PetType toType(String type) {
+        if (type.equals("Stuart"))
+            return PetType.STUART;
+        if (type.equals("Kevin"))
+            return PetType.KEVIN;
+        if (type.equals("Bob"))
+            return PetType.BOB;
+        return null;
+    }
+
     public void ActionHandler(PetAction action, Minion minion) throws InvocationTargetException, IllegalAccessException {
         actions.get(action).invoke(minion);
     }

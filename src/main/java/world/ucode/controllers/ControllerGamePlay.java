@@ -5,13 +5,16 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
+import world.ucode.DataBase;
 import world.ucode.pet.Minion;
 import world.ucode.pet.PetAction;
 import world.ucode.scenes.GameMenu;
@@ -19,6 +22,9 @@ import world.ucode.animation.MinionAnimation;
 import world.ucode.scenes.GameOver;
 
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class ControllerGamePlay extends Controller{
     Minion minion;
@@ -26,23 +32,37 @@ public class ControllerGamePlay extends Controller{
     Timeline LiveCycle;
     @FXML
     ImageView AnimationView;
+    @FXML
+    Label MinionName;
 
     public ControllerGamePlay(Stage primaryStage, Minion minion) {
         super(primaryStage);
         this.minion = minion;
     }
-
-    @FXML
-    private void HandleBackGamePlay() {
-        GameMenu menu = new GameMenu(primaryStage);
-    }
-
-    @FXML
-    private void HandleStart() {
-        //SetProgress();
-        MinionName.setText(minion.getName());
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        primaryStage.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, this::HandleClose);
+        ButtonSetStyle();
+        MinionName.setText(minion.GetType().toString());
+        MinionName.setAlignment(Pos.TOP_CENTER);
         this.animation = new MinionAnimation(minion.GetType(),AnimationView);
         startLiveCycle();
+    }
+
+    private void HandleClose(WindowEvent event){
+        System.out.println("close");
+        LiveCycle.stop();
+        SaveMinion();
+    }
+
+    private void SaveMinion(){
+        try {
+            DataBase.WriteDB(minion.GetType().toString(), minion.getName(), minion.GetHealth(), minion.GetHappiness(),
+                    minion.GetHunger(), minion.GetThirst(), minion.GetCleanliness());;
+        }
+        catch (SQLException ignored) {
+            System.err.println("SQLException");
+        }
     }
     private void SetProgress() {
         ProgressBarHealth.setProgress(minion.GetHealth()/minion.GetMaxHealth());
@@ -50,6 +70,12 @@ public class ControllerGamePlay extends Controller{
         ProgressBarHunger.setProgress(minion.GetHunger()/10);
         ProgressBarThirst.setProgress(minion.GetThirst()/10);
         ProgressBarCleanliness.setProgress(minion.GetCleanliness()/10);
+    }
+    @FXML
+    private void HandleBackGamePlay() {
+        LiveCycle.stop();
+        SaveMinion();
+        GameMenu menu = new GameMenu(primaryStage);
     }
     @FXML
     ProgressBar ProgressBarHealth;
@@ -61,8 +87,6 @@ public class ControllerGamePlay extends Controller{
     ProgressBar ProgressBarThirst;
     @FXML
     ProgressBar ProgressBarCleanliness;
-    @FXML
-    Label MinionName;
 
     @FXML
     private void HandlePlay() throws InvocationTargetException, IllegalAccessException {
@@ -113,8 +137,7 @@ public class ControllerGamePlay extends Controller{
                 }));
         LiveCycle.play();
     }
-    @FXML
-    Button StartButton;
+
     @FXML
     Button BackGamePlay;
     @FXML
@@ -127,60 +150,18 @@ public class ControllerGamePlay extends Controller{
     Button GiveMedicineButton;
     @FXML
     Button CleanUpButton;
-    @FXML
-    private void EnteredStart() {
-        StartButton.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedStart() {
-        StartButton.setStyle(style);
-    }
-    @FXML
-    private void EnteredBackGamePlay() {
-        BackGamePlay.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedBackGamePlay() {
-        BackGamePlay.setStyle(style);
-    }
-    @FXML
-    private void EnteredPlay() {
-        PlayButton.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedPlay() {
-        PlayButton.setStyle(style);
-    }
-    @FXML
-    private void EnteredFeed() {
-        FeedButton.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedFeed() {
-        FeedButton.setStyle(style);
-    }
-    @FXML
-    private void EnteredGiveWater() {
-        GiveWaterButton.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedGiveWater() {
-        GiveWaterButton.setStyle(style);
-    }
-    @FXML
-    private void EnteredGiveMedicine() {
-        GiveMedicineButton.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedGiveMedicine() {
-        GiveMedicineButton.setStyle(style);
-    }
-    @FXML
-    private void EnteredCleanUp() {
-        CleanUpButton.setStyle(styleHover);
-    }
-    @FXML
-    private void ExitedCleanUp() {
-        CleanUpButton.setStyle(style);
+    private void ButtonSetStyle() {
+        BackGamePlay.setOnMouseEntered(e -> BackGamePlay.setStyle(styleHover));
+        BackGamePlay.setOnMouseExited(e -> BackGamePlay.setStyle(style));
+        PlayButton.setOnMouseEntered(e -> PlayButton.setStyle(styleHover));
+        PlayButton.setOnMouseExited(e -> PlayButton.setStyle(style));
+        FeedButton.setOnMouseEntered(e -> FeedButton.setStyle(styleHover));
+        FeedButton.setOnMouseExited(e -> FeedButton.setStyle(style));
+        GiveWaterButton.setOnMouseEntered(e -> GiveWaterButton.setStyle(styleHover));
+        GiveWaterButton.setOnMouseExited(e -> GiveWaterButton.setStyle(style));
+        GiveMedicineButton.setOnMouseEntered(e -> GiveMedicineButton.setStyle(styleHover));
+        GiveMedicineButton.setOnMouseExited(e -> GiveMedicineButton.setStyle(style));
+        CleanUpButton.setOnMouseEntered(e -> CleanUpButton.setStyle(styleHover));
+        CleanUpButton.setOnMouseExited(e -> CleanUpButton.setStyle(style));
     }
 }
