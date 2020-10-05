@@ -24,23 +24,24 @@ public class MinionAnimation {
     private final ImageView AnimationView;
     private final Timeline timeline;
 
-    private final Map<PetAction, Image> Images = new HashMap<PetAction, Image>() {{
-            put(PetAction.PLAY, Play);
-            put(PetAction.FEED, Eat);
-            put(PetAction.GIVE_WATER, Drink);
-            put(PetAction.GIVE_MEDICINE, GetMedicine);
-            put(PetAction.CLEAN_UP, Clean);
-    }};
+    private final Map<PetAction, Image> Images;
 
     public MinionAnimation(PetType type, ImageView AnimationView) {
         this.AnimationView = AnimationView;
-        this.timeline = new Timeline(new KeyFrame(Duration.seconds(5), actionEvent -> AnimationView.setImage(Happy)));
+        this.timeline = new Timeline(new KeyFrame(Duration.seconds(4), actionEvent -> AnimationView.setImage(Happy)));
         if (type == PetType.BOB)
             CreateBobAnimation();
         else if (type == PetType.KEVIN)
             CreateKevinAnimation();
         else
             CreateStuartAnimation();
+        Images = new HashMap<PetAction, Image>() {{
+            put(PetAction.PLAY, Play);
+            put(PetAction.FEED, Eat);
+            put(PetAction.GIVE_WATER, Drink);
+            put(PetAction.GIVE_MEDICINE, GetMedicine);
+            put(PetAction.CLEAN_UP, Clean);
+        }};
         AnimationView.setImage(Happy);
     }
 
@@ -48,31 +49,31 @@ public class MinionAnimation {
         AnimationView.setImage(Images.get(action));
         timeline.play();
     }
-    private void CreateBobAnimation() {
+    private void CreateBobAnimation() {//сделать один конструктор
         Happy = new Image("/Bob.gif");
-        Sad = new Image("/GameOver.gif");
-        Eat = new Image("/GameOver.gif");
-        Drink = new Image("/GameOver.gif");
-        Play = new Image("/bobPlay.gif");
-        GetMedicine = new Image("/GameOver.gif");
-        Clean = new Image("/GameOver.gif");
+        Sad = new Image("/shockedBob.gif");//
+        Eat = new Image("/BobEat.gif");
+        Drink = new Image("/BobEat2.gif");
+        Play = new Image("/BobPlay.gif");
+        GetMedicine = new Image("/GameOver.gif");//
+        Clean = new Image("/GameOver.gif");//
     }
     private void CreateKevinAnimation() {
         Happy = new Image("/Kevin.gif");
-        Sad = new Image("/GameOver.gif");
-        Eat = new Image("/GameOver.gif");
-        Drink = new Image("/GameOver.gif");
-        Play = new Image("/kevinDance.gif");
-        GetMedicine = new Image("/GameOver.gif");
-        Clean = new Image("/kevin_clean.gif");
+        Sad = new Image("/GameOver.gif");//
+        Eat = new Image("/KevinEat.gif");
+        Drink = new Image("/GameOver.gif");//
+        Play = new Image("/KevinPlay2.gif");
+        GetMedicine = new Image("/GameOver.gif");//
+        Clean = new Image("/KevinShower.gif");
     }
     private void CreateStuartAnimation() {
         Happy = new Image("/Stuart.gif");
-        Sad = new Image("/GameOver.gif");
-        Eat = new Image("/GameOver.gif");
-        Drink = new Image("/GameOver.gif");
-        Play = new Image("/GameOver.gif");
-        GetMedicine = new Image("/sadStuart.gif");
-        Clean = new Image("/GameOver.gif");
+        Sad = new Image("/sadStuart.gif");
+        Eat = new Image("/StuartEat.gif");
+        Drink = new Image("/StuartDrink.gif");
+        Play = new Image("/StuartPlay.gif");
+        GetMedicine = new Image("/StuartMedicine.gif");//
+        Clean = new Image("/StuartShower.gif", 800, 400, false, false);
     }
 }
