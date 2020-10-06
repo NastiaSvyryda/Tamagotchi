@@ -35,20 +35,12 @@ public class Minion {
     public Minion(ResultSet Minion) {
         try {
             type = toType(Minion.getString("type"));
-            System.out.println("type = " + Minion.getString("type"));
             name = Minion.getString("name");
-            System.out.println("name = " + Minion.getString("name"));
             health = Double.parseDouble(Minion.getString("health"));
-            System.out.println("health = " + Minion.getString("health"));
             happiness = Double.parseDouble(Minion.getString("happiness"));
-            System.out.println("happiness = " + Minion.getString("happiness"));
             hunger = Double.parseDouble(Minion.getString("hunger"));
-            System.out.println("hunger = " + Minion.getString("hunger"));
             thirst = Double.parseDouble(Minion.getString("thirst"));
-            System.out.println("thirst = " + Minion.getString("thirst"));
             cleanliness = Double.parseDouble(Minion.getString("cleanliness"));
-            System.out.println("cleanliness = " + Minion.getString("cleanliness"));
-            System.out.println();
         }
         catch(SQLException ignored) {
             System.err.println("SQLException");
@@ -69,7 +61,7 @@ public class Minion {
         actions.get(action).invoke(minion);
     }
 
-    public String getName() {
+    public String GetName() {
         return name;
     }
     public PetType GetType() {
@@ -83,40 +75,62 @@ public class Minion {
     public double GetCleanliness() {return cleanliness;}
 
     public int LiveCycle() {
-        if (health > 0) {
-            happiness -= 0.005;
-            hunger -= 0.005;
-            thirst -= 0.005;
-            cleanliness -= 0.005;
-            health -= 0.005;
+        if (GetHealth() > 0) {
+            SetHappiness(GetHappiness() - 0.005);
+            SetHunger(GetHunger() - 0.005);
+            SetThirst(GetThirst() - 0.005);
+            SetCleanliness(GetCleanliness() - 0.005);
+            SetHealth(GetHealth() - 0.005);
             return 0;
         }
         return -1;
     }
     private void play() {
-        System.out.println("play");
-        happiness++;
-        hunger--;
-        thirst--;
-        cleanliness--;
-        health--;
+        SetHappiness(GetHappiness() + 1);
+        SetHunger(GetHunger() - 0.5);
+        SetThirst(GetThirst() - 0.5);
+        SetCleanliness(GetCleanliness() - 0.5);
+        SetHealth(GetHealth() - 0.5);
     }
     private void feed() {
-        System.out.println("feed");
-        hunger++;
-        health++;
+        SetHunger(GetHunger() + 1);
+        SetHealth(GetHealth() + 1);
     }
     private void giveWater() {
-        System.out.println("give water");
-        thirst++;
-        health++;
+        SetThirst(GetThirst() + 1);
+        SetHealth(GetHealth() + 1);
     }
     private void giveMadicine() {
-        System.out.println("give med");
-        health++;
+        SetHealth(GetHealth() + 1);
     }
     private void cleanUp() {
-        System.out.println("clean");
-        cleanliness++;
+        SetCleanliness(GetCleanliness() + 1);
+    }
+    public void SetHealth(double value) {
+        health = value;
+    }
+    public void SetHappiness(double value) {
+        if (value < 1)
+            SetHealth(GetHealth() - 0.05);
+        else
+            happiness = value;
+    }
+    public void SetHunger(double value) {
+        if (value < 1)
+            SetHealth(GetHealth() - 0.05);
+        else
+            hunger = value;
+    }
+    public void SetThirst(double value) {
+        if (value < 1)
+            SetHealth(GetHealth() - 0.05);
+        else
+            thirst = value;
+    }
+    public void SetCleanliness(double value) {
+        if (value < 1)
+            SetHealth(GetHealth() - 0.05);
+        else
+            cleanliness = value;
     }
 }

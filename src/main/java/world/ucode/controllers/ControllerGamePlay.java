@@ -9,7 +9,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -33,6 +32,8 @@ public class ControllerGamePlay extends Controller{
     @FXML
     ImageView AnimationView;
     @FXML
+    ImageView MinionView;
+    @FXML
     Label MinionName;
 
     public ControllerGamePlay(Stage primaryStage, Minion minion) {
@@ -45,19 +46,18 @@ public class ControllerGamePlay extends Controller{
         ButtonSetStyle();
         MinionName.setText(minion.GetType().toString());
         MinionName.setAlignment(Pos.TOP_CENTER);
-        this.animation = new MinionAnimation(minion.GetType(),AnimationView);
+        this.animation = new MinionAnimation(minion.GetType(),AnimationView, MinionView);
         startLiveCycle();
     }
 
     private void HandleClose(WindowEvent event){
-        System.out.println("close");
         LiveCycle.stop();
         SaveMinion();
     }
 
     private void SaveMinion(){
         try {
-            DataBase.WriteDB(minion.GetType().toString(), minion.getName(), minion.GetHealth(), minion.GetHappiness(),
+            DataBase.WriteDB(minion.GetType().toString(), minion.GetName(), minion.GetHealth(), minion.GetHappiness(),
                     minion.GetHunger(), minion.GetThirst(), minion.GetCleanliness());;
         }
         catch (SQLException ignored) {
@@ -127,12 +127,15 @@ public class ControllerGamePlay extends Controller{
                     @Override
                     public void handle(ActionEvent event) {
                         if (minion.LiveCycle() == -1) {
-                            //delete minion from db
+                            try {
+                                DataBase.DeleteDB(minion.GetName());
+                            } catch (SQLException throwables) {
+                                throwables.printStackTrace();
+                            }
                             LiveCycle.stop();
                             GameOver menu = new GameOver(primaryStage);
                         }
                         SetProgress();
-                        System.out.println("LiveCycle");
                     }
                 }));
         LiveCycle.play();

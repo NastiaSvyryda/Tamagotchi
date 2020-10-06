@@ -1,10 +1,8 @@
 package world.ucode.scenes;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public abstract class GameScene {
@@ -13,7 +11,7 @@ public abstract class GameScene {
     GameScene(Stage primaryStage, String fxmlName, Object Controller) {
         try {
             FXMLLoader loader = new
-                    FXMLLoader(getClass().getResource(fxmlName));
+                    FXMLLoader(getClass().getResource("/FXML/" + fxmlName));
             loader.setController(Controller);
             PaneRoot = loader.load();
             scene = new Scene(PaneRoot, 800, 600);

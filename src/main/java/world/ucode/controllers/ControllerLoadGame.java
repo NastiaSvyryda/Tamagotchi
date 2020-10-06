@@ -33,7 +33,6 @@ public class ControllerLoadGame extends Controller {
     @FXML
     private void HandleSelect() {
         String selectedChoice = LoadMinions.getSelectionModel().getSelectedItem();
-        System.out.println(selectedChoice);
         ResultSet resSet;
         try {
             resSet = DataBase.ReadDBMinion(selectedChoice);

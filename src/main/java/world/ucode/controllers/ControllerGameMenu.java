@@ -16,12 +16,11 @@ public class ControllerGameMenu extends Controller{
 
     @FXML
     private void HandleNewGame() {
-        System.out.println("click new");
         NewGame scene = new NewGame(primaryStage);
     }
+
     @FXML
     private void HandleLoadGame() {
-        System.out.println("click load");
         LoadGame scene = new LoadGame(primaryStage);
     }
 
